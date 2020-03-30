@@ -6,13 +6,13 @@ import PortfolioItem from "./portfolio-item"
 
 const PortfolioContainer = styled.div`
   width: 100%;
-  padding: calc(50vh - (350px / 2)) 2em;
+  padding: 4em 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media screen and (max-width: 780px) {
-    padding: calc(50vh - (600px / 2)) 2em;
+    padding: 4em 2em;
   }
 `
 

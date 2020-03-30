@@ -60,23 +60,27 @@ const LayoutContainer = styled.div`
   grid-template-areas: "aside main";
 
   @media screen and (max-width: 1150px) {
-    grid-template-areas: "main main";
+    grid-template-rows: minmax(100px, 1fr) auto;
+    grid-template-areas:
+      "nav nav"
+      "main main";
   }
 
   & > nav {
-    padding: 2em;
+    grid-area: nav;
     z-index: 2;
-    position: fixed;
+    position: sticky;
     top: 0;
-    right: 0;
     display: none;
 
     @media screen and (max-width: 1150px) {
       display: flex;
+      flex-direction: row-reverse;
       align-items: center;
     }
 
     span {
+      margin-right: 2em;
       text-transform: uppercase;
       letter-spacing: 0.2rem;
       cursor: pointer;
@@ -93,7 +97,7 @@ const Main = styled.main`
     ${({ isAsideOpen }) =>
       isAsideOpen &&
       css`
-        height: 100vh;
+        height: calc(100vh - 100px);
         overflow: hidden;
         filter: blur(2px);
       `}
