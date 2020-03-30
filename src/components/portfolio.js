@@ -11,8 +11,8 @@ const PortfolioContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media screen and (max-width: 780px) {
-    padding: 4em 2em;
+  @media screen and (max-width: 1150px) {
+    padding: 0 2em;
   }
 `
 

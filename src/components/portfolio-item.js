@@ -21,7 +21,7 @@ const PortfolioItemWrapper = styled.article`
   }
 
   &:not(:last-of-type) {
-    margin-bottom: 2em;
+    margin-bottom: 4em;
   }
 `
 
