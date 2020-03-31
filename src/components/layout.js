@@ -92,6 +92,10 @@ const LayoutContainer = styled.div`
 
 const Main = styled.main`
   grid-area: main;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 1150px) {
     ${({ isAsideOpen }) =>

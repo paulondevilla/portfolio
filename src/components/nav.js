@@ -49,7 +49,7 @@ const Nav = ({ toggleAside }) => {
           👨🏻‍💻
         </li>
         <li>
-          <StyledLink to="/page-2/" onClick={toggleAside}>
+          <StyledLink to="/contact-page/" onClick={toggleAside}>
             Contact
           </StyledLink>
           📧

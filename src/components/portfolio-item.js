@@ -12,6 +12,7 @@ const PortfolioItemWrapper = styled.article`
   border-radius: 8px;
   box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.05), 0 8px 18px hsla(0, 0%, 0%, 0.05),
     0 12px 24px hsla(0, 0%, 0%, 0.05);
+  overflow: hidden;
   display: flex;
 
   @media screen and (max-width: 780px) {
