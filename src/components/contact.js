@@ -18,7 +18,7 @@ const ContactContainer = styled.form`
     "....... submit";
   gap: 1em;
 
-  & > div {
+  & > div:not([data-netlify-recaptcha]) {
     padding: 0.5em 1em;
     border: 2px solid hsl(0, 0%, 67%);
     border-radius: 4px;
