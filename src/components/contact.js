@@ -85,9 +85,9 @@ const StyledIcon = styled(FontAwesomeIcon)`
 const Contact = () => {
   return (
     <ContactContainer
-      netlify
       name="contact"
-      method="post"
+      method="POST"
+      data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
       <input hidden name="form-name" value="contact" />
