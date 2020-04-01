@@ -1,6 +1,8 @@
 import React from "react"
 
 import styled from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 
 const ContactContainer = styled.form`
   max-height: 700px;
@@ -18,7 +20,7 @@ const ContactContainer = styled.form`
 
   & > div {
     padding: 0.5em 1em;
-    border: 1px solid hsl(0, 0%, 67%);
+    border: 2px solid hsl(0, 0%, 67%);
     border-radius: 4px;
     display: flex;
     align-items: stretch;
@@ -65,35 +67,68 @@ const MessageArea = styled.div`
 
 const SendButton = styled.button`
   grid-area: submit;
-  background-color: inherit;
+  justify-self: end;
+  width: 10em;
+  border-radius: 4px;
+  background-color: hsl(0, 0%, 13%);
   box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.05), 0 8px 18px hsla(0, 0%, 0%, 0.05),
     0 12px 24px hsla(0, 0%, 0%, 0.05);
+  color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
   display: inline-block;
+`
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  font-size: 1.2rem;
 `
 
 const Contact = () => {
   return (
-    <ContactContainer netlify name="contact">
+    <ContactContainer
+      netlify
+      name="contact"
+      method="post"
+      data-netlify-honeypot="bot-field"
+    >
+      <input hidden name="form-name" value="contact" />
+      <input hidden name="bot-field" />
       <EmailInput>
         <label htmlFor="email">Email: </label>
-        <input type="email" name="email" placeholder="user@example.com" />
+        <input
+          required
+          type="email"
+          name="email"
+          id="email"
+          placeholder="e.g. user@example.com"
+        />
       </EmailInput>
       <NameInput>
         <label htmlFor="name">Name: </label>
-        <input type="text" name="name" placeholder="Paul" />
+        <input type="text" name="name" id="name" placeholder="e.g. Paul" />
       </NameInput>
       <SubjectInput>
         <label htmlFor="subject">Subject: </label>
-        <input type="text" name="subject" placeholder="What's it about?" />
+        <input
+          required
+          type="text"
+          name="subject"
+          id="subject"
+          placeholder="What's it about?"
+        />
       </SubjectInput>
       <MessageArea>
         <label htmlFor="message">Message: </label>
         <textarea
+          required
           name="message"
+          id="message"
           placeholder="What would you like to say?"
         ></textarea>
       </MessageArea>
-      <SendButton type="submit">Send</SendButton>
+      <div data-netlify-recaptcha="true"></div>
+      <SendButton type="submit">
+        Send <StyledIcon icon={faPaperPlane} />
+      </SendButton>
     </ContactContainer>
   )
 }

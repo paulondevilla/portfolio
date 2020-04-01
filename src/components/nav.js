@@ -38,7 +38,7 @@ const Nav = ({ toggleAside }) => {
       <ul>
         <li>
           <StyledLink to="/" onClick={toggleAside}>
-            Works
+            Projects
           </StyledLink>
           💻
         </li>
