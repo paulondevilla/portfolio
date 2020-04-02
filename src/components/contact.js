@@ -17,7 +17,7 @@ const ContactForm = styled.form`
     "....... submit";
   gap: 1em;
 
-  & > div:not(:last-of-type) {
+  & > div {
     padding: 0.5em 1em;
     border: 2px solid hsl(0, 0%, 67%);
     border-radius: 4px;
@@ -166,7 +166,6 @@ const Contact = () => {
           onChange={handleChange}
         ></textarea>
       </MessageArea>
-      <div data-netlify-recaptcha="true"></div>
       <SendButton type="submit">
         Send <StyledIcon icon={faPaperPlane} />
       </SendButton>
