@@ -18,6 +18,7 @@ const PortfolioContainer = styled.div`
 const Portfolio = () => {
   return (
     <PortfolioContainer>
+      <h1>PROJECTS</h1>
       <PortfolioItem />
       <PortfolioItem />
       <PortfolioItem />
