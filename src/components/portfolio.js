@@ -9,16 +9,17 @@ const PortfolioContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2em 0;
 
-  @media screen and (max-width: 1150px) {
-    padding: 0 2em;
+  & > h1 {
+    margin-bottom: 2em;
+    letter-spacing: 0.4rem;
   }
 `
 
 const Portfolio = () => {
   return (
     <PortfolioContainer>
-      <h1>PROJECTS</h1>
       <PortfolioItem />
       <PortfolioItem />
       <PortfolioItem />

@@ -6,8 +6,7 @@ import { fluidType } from "./mixins"
 
 const NavContainer = styled.nav`
   margin-bottom: 2em;
-
-  ${fluidType(20, 100, 1.25, 1.675, "rem")}
+  font-size: 1.8rem;
 
   ul {
     width: 100%;
@@ -20,8 +19,8 @@ const NavContainer = styled.nav`
     }
   }
 
-  @media screen and (max-width: 500px) {
-    font-size: 1.8rem;
+  @media screen and (min-width: 500px) {
+    ${fluidType(20, 100, 1.25, 1.675, "rem")}
   }
 `
 

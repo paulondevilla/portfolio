@@ -14,7 +14,7 @@ import { fluidType } from "./mixins"
 
 import { AsideContext } from "./providers"
 
-import Aside from "./aside"
+import Sidebar from "./aside"
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -122,7 +122,7 @@ const Layout = ({ children }) => {
     <LayoutContainer>
       <GlobalStyle />
 
-      <Aside navRef={navRef} />
+      <Sidebar navRef={navRef} />
 
       <Main isAsideOpen={isAsideOpen}>{children}</Main>
 

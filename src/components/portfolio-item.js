@@ -1,87 +1,60 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import styled, { css } from "styled-components"
 import { fluidType } from "./mixins"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithubAlt } from "@fortawesome/free-brands-svg-icons"
 
 import Image from "./image"
 
 const PortfolioItemWrapper = styled.article`
-  max-width: 700px;
-  height: 350px;
+  max-width: 400px;
+  height: fit-content;
   border-radius: 8px;
   box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.05), 0 8px 18px hsla(0, 0%, 0%, 0.05),
     0 12px 24px hsla(0, 0%, 0%, 0.05);
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
 
-  @media screen and (max-width: 780px) {
-    max-width: 400px;
-    height: 600px;
-    flex-direction: column;
-  }
+  @media screen and (min-width: 780px) {
+    max-width: 800px;
 
-  &:not(:last-of-type) {
-    margin-bottom: 4em;
+    & > div {
+      width: 50%;
+    }
   }
 `
 
 const PortfolioItemImage = styled.div`
-  flex: 0 1 350px;
   width: 100%;
   overflow: hidden;
-
-  img {
-    max-width: 100%;
-  }
 `
 
 const PortfolioItemDescription = styled.div`
-  flex: 0 1 350px;
-  width: 100%;
   padding: 1.5em;
   display: flex;
   flex-direction: column;
+  gap: 1em;
 
-  header {
-    h1 {
-      font-weight: 400;
-      line-height: 1;
-    }
+  h1 {
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    line-height: 1;
   }
-
-  p {
-    ${fluidType(20, 80, 1, 1.25, "rem")}
-  }
-`
-
-const ExternalLinks = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1.2em;
-  display: flex;
-
-  li + li {
-    margin-left: 1em;
-  }
-`
-
-const StyledLink = styled(Link)`
-  letter-spacing: 0.1rem;
 `
 
 const TechStack = styled.ul`
-  padding: 0;
-  margin-top: auto;
   list-style: none;
+  padding: 0;
   display: flex;
-  flex-flow: row wrap;
+  gap: 0.2em;
+  flex-wrap: wrap;
   justify-content: center;
 
   li {
-    padding: 0.2em 0.8em;
+    padding: 0.2em 1em;
     border-radius: 1em;
-    margin-bottom: 0.2em;
     background-color: hsl(0, 0%, 13%);
     color: hsl(0, 0%, 100%);
     text-transform: uppercase;
@@ -94,34 +67,54 @@ const TechStack = styled.ul`
   }
 `
 
+const DemoButton = styled.div`
+  align-self: flex-end;
+  width: fit-content;
+  margin-top: auto;
+  border-radius: 4px;
+  background-color: hsl(0, 0%, 13%);
+  display: flex;
+
+  button {
+    padding: 0.5em 1em;
+    border: none;
+    background-color: transparent;
+    box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.05),
+      0 8px 18px hsla(0, 0%, 0%, 0.05), 0 12px 24px hsla(0, 0%, 0%, 0.05);
+    font-family: inherit;
+    font-size: inherit;
+    color: hsl(0, 0%, 100%);
+
+    &:first-child {
+      border-right: 2px solid hsl(0, 0%, 100%);
+      font-size: 1.5rem;
+    }
+  }
+`
+
 const PortfolioItem = () => {
   return (
     <PortfolioItemWrapper>
       <PortfolioItemImage>
         <Image />
       </PortfolioItemImage>
+
       <PortfolioItemDescription>
         <header>
           <h1>Title Here</h1>
         </header>
-        <ExternalLinks>
-          <li>
-            <StyledLink>Demo</StyledLink>
-          </li>
-          <li>
-            <StyledLink>Github</StyledLink>
-          </li>
-        </ExternalLinks>
+
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates,
           eligendi?
         </p>
-        <TechStack>
-          <li>tech</li>
-          <li>stack</li>
-          <li>goes</li>
-          <li>here</li>
-        </TechStack>
+
+        <DemoButton>
+          <button onClick={() => console.log("🐱")}>
+            <FontAwesomeIcon icon={faGithubAlt} />
+          </button>
+          <button onClick={() => console.log("🌐")}>View Demo</button>
+        </DemoButton>
       </PortfolioItemDescription>
     </PortfolioItemWrapper>
   )

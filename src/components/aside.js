@@ -90,7 +90,7 @@ const CloseButton = styled(FontAwesomeIcon).attrs(props => ({
   }
 `
 
-const Aside = ({ navRef }) => {
+const Sidebar = ({ navRef }) => {
   const { isAsideOpen, toggleAside } = useContext(AsideContext)
 
   const asideRef = useRef(null)
@@ -110,4 +110,4 @@ const Aside = ({ navRef }) => {
   )
 }
 
-export default Aside
+export default Sidebar
