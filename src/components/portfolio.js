@@ -6,7 +6,6 @@ import PortfolioItem from "./portfolio-item"
 
 const PortfolioContainer = styled.div`
   width: 100%;
-  padding: 4em 2em;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -60,27 +60,21 @@ const LayoutContainer = styled.div`
   grid-template-areas: "aside main";
 
   @media screen and (max-width: 1150px) {
-    grid-template-rows: minmax(100px, 1fr) auto;
-    grid-template-areas:
-      "nav nav"
-      "main main";
+    grid-template-areas: "main main";
   }
 
   & > nav {
-    grid-area: nav;
     z-index: 2;
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 2em;
+    right: 2em;
     display: none;
 
     @media screen and (max-width: 1150px) {
       display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
     }
 
     span {
-      margin-right: 2em;
       text-transform: uppercase;
       letter-spacing: 0.2rem;
       cursor: pointer;
@@ -92,6 +86,7 @@ const LayoutContainer = styled.div`
 
 const Main = styled.main`
   grid-area: main;
+  padding: 4em 2em;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -101,7 +96,7 @@ const Main = styled.main`
     ${({ isAsideOpen }) =>
       isAsideOpen &&
       css`
-        height: calc(100vh - 100px);
+        /* height: 100vh;*/
         overflow: hidden;
         filter: blur(2px);
       `}

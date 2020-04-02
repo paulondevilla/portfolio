@@ -5,9 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 
 const ContactContainer = styled.form`
-  max-height: 700px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(350px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows:
     minmax(calc(50px + 0.5em), 1fr) minmax(calc(50px + 0.5em), 1fr)
     minmax(200px, 4fr) minmax(calc(50px + 0.5em), 1fr);
@@ -18,12 +17,12 @@ const ContactContainer = styled.form`
     "....... submit";
   gap: 1em;
 
-  & > div:not([data-netlify-recaptcha]) {
+  & > div:not(:last-of-type) {
     padding: 0.5em 1em;
     border: 2px solid hsl(0, 0%, 67%);
     border-radius: 4px;
+    overflow: hidden;
     display: flex;
-    align-items: stretch;
 
     label {
       margin-right: 0.5em;
@@ -36,7 +35,9 @@ const ContactContainer = styled.form`
 
     input,
     textarea {
-      width: 100%;
+      width: 300px;
+      flex: 1;
+      overflow: hidden;
     }
   }
 
@@ -63,6 +64,10 @@ const SubjectInput = styled.div`
 
 const MessageArea = styled.div`
   grid-area: message;
+
+  textarea {
+    resize: none;
+  }
 `
 
 const SendButton = styled.button`
@@ -94,36 +99,19 @@ const Contact = () => {
       <input hidden name="bot-field" />
       <EmailInput>
         <label htmlFor="email">Email: </label>
-        <input
-          required
-          type="email"
-          name="email"
-          id="email"
-          placeholder="e.g. user@example.com"
-        />
+        <input required type="email" name="email" id="email" />
       </EmailInput>
       <NameInput>
         <label htmlFor="name">Name: </label>
-        <input type="text" name="name" id="name" placeholder="e.g. Paul" />
+        <input required type="text" name="name" id="name" />
       </NameInput>
       <SubjectInput>
         <label htmlFor="subject">Subject: </label>
-        <input
-          required
-          type="text"
-          name="subject"
-          id="subject"
-          placeholder="What's it about?"
-        />
+        <input required type="text" name="subject" id="subject" />
       </SubjectInput>
       <MessageArea>
         <label htmlFor="message">Message: </label>
-        <textarea
-          required
-          name="message"
-          id="message"
-          placeholder="What would you like to say?"
-        ></textarea>
+        <textarea required name="message" id="message"></textarea>
       </MessageArea>
       <div data-netlify-recaptcha="true"></div>
       <SendButton type="submit">
