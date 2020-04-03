@@ -50,20 +50,13 @@ const TechStack = styled.ul`
   display: flex;
   gap: 0.2em;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
 
-  li {
-    padding: 0.2em 1em;
-    border-radius: 1em;
-    background-color: hsl(0, 0%, 13%);
-    color: hsl(0, 0%, 100%);
-    text-transform: uppercase;
+  ${fluidType(20, 80, 0.875, 1.125, "rem")}
 
-    &:not(:last-of-type) {
-      margin-right: 0.2em;
-    }
-
-    ${fluidType(20, 80, 0.875, 1, "rem")}
+  li:not(:last-of-type)::after {
+    content: "/";
+    margin-left: 0.2em;
   }
 `
 
@@ -95,6 +88,8 @@ const DemoButton = styled.div`
 `
 
 const PortfolioItem = () => {
+  const techStack = ["react", "gatsbyjs", "css-in-js", "netlify"]
+
   return (
     <PortfolioItemWrapper>
       <PortfolioItemImage>
@@ -104,6 +99,12 @@ const PortfolioItem = () => {
       <PortfolioItemDescription>
         <header>
           <h1>Title Here</h1>
+          <TechStack>
+            {techStack &&
+              techStack.map(tech => {
+                return <li>{tech}</li>
+              })}
+          </TechStack>
         </header>
 
         <p>

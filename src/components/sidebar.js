@@ -56,7 +56,7 @@ const SidebarContainer = styled.aside`
         ? css`
             grid-column: 1 / -1;
             grid-row: 1/-1;
-            padding: 4em;
+            padding: 5em 2em;
             background-color: hsl(0, 0%, 100%);
             display: flex;
 

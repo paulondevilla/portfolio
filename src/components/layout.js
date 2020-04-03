@@ -86,9 +86,9 @@ const LayoutContainer = styled.div`
 
 const Main = styled.main`
   grid-area: main;
-  padding: 4em 2em;
+  padding: 5em 2em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -97,6 +97,10 @@ const Main = styled.main`
     css`
       filter: blur(2px);
     `}
+
+  & > h1 {
+    margin-bottom: 2em;
+  }
 `
 
 const Layout = ({ children }) => {

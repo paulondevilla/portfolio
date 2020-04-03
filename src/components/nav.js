@@ -43,7 +43,7 @@ const Nav = ({ isSidebarOpen, toggleSidebar }) => {
         </li>
         <li>
           <StyledLink
-            to="/page-2/"
+            to="/about-me-page/"
             onClick={() => isSidebarOpen && toggleSidebar}
           >
             About Me
