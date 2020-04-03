@@ -17,7 +17,7 @@ const PortfolioItemWrapper = styled.article`
   display: flex;
   flex-wrap: wrap;
 
-  @media screen and (min-width: 780px) {
+  @media screen and (min-width: 750px) {
     max-width: 800px;
 
     & > div {

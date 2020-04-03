@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { navigate } from "gatsby"
 
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -94,7 +95,12 @@ function encode(data) {
 }
 
 const Contact = () => {
-  const [state, setState] = useState({})
+  const [state, setState] = useState({
+    email: "",
+    name: "",
+    subject: "",
+    message: "",
+  })
 
   const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value })
@@ -113,7 +119,15 @@ const Contact = () => {
         ...state,
       }),
     })
-      .then(() => setState({}))
+      .then(() => {
+        setState({
+          email: "",
+          name: "",
+          subject: "",
+          message: "",
+        })
+        navigate(form.getAttribute("action"))
+      })
       .catch(error => alert(error))
   }
 
@@ -121,6 +135,7 @@ const Contact = () => {
     <ContactForm
       name="contact"
       method="POST"
+      action="/"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
@@ -134,6 +149,7 @@ const Contact = () => {
           type="email"
           name="email"
           id="email"
+          value={state.email}
           onChange={handleChange}
         />
       </EmailInput>
@@ -144,6 +160,7 @@ const Contact = () => {
           type="text"
           name="name"
           id="name"
+          value={state.name}
           onChange={handleChange}
         />
       </NameInput>
@@ -154,6 +171,7 @@ const Contact = () => {
           type="text"
           name="subject"
           id="subject"
+          value={state.subject}
           onChange={handleChange}
         />
       </SubjectInput>
@@ -163,6 +181,7 @@ const Contact = () => {
           required
           name="message"
           id="message"
+          value={state.message}
           onChange={handleChange}
         ></textarea>
       </MessageArea>
