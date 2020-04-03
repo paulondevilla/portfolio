@@ -12,9 +12,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled, { createGlobalStyle, css } from "styled-components"
 import { fluidType } from "./mixins"
 
-import { AsideContext } from "./providers"
+import { SidebarContext } from "./providers"
 
-import Sidebar from "./aside"
+import Sidebar from "./sidebar"
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -56,11 +56,11 @@ const LayoutContainer = styled.div`
   min-height: 100vh;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(350px, 1fr) [aside-end] 3fr;
-  grid-template-areas: "aside main";
+  grid-template-columns: minmax(350px, 1fr) [sidebar-end] 3fr;
+  grid-template-areas: "main main";
 
-  @media screen and (max-width: 1150px) {
-    grid-template-areas: "main main";
+  @media screen and (min-width: 1150px) {
+    grid-template-areas: "sidebar main";
   }
 
   & > nav {
@@ -68,10 +68,10 @@ const LayoutContainer = styled.div`
     position: fixed;
     top: 2em;
     right: 2em;
-    display: none;
+    display: flex;
 
-    @media screen and (max-width: 1150px) {
-      display: flex;
+    @media screen and (min-width: 1150px) {
+      display: none;
     }
 
     span {
@@ -92,15 +92,11 @@ const Main = styled.main`
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 1150px) {
-    ${({ isAsideOpen }) =>
-      isAsideOpen &&
-      css`
-        /* height: 100vh;*/
-        overflow: hidden;
-        filter: blur(2px);
-      `}
-  }
+  ${({ isSidebarOpen }) =>
+    isSidebarOpen &&
+    css`
+      filter: blur(2px);
+    `}
 `
 
 const Layout = ({ children }) => {
@@ -114,7 +110,7 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const { isAsideOpen, toggleAside } = useContext(AsideContext)
+  const { isSidebarOpen, toggleSidebar } = useContext(SidebarContext)
 
   const navRef = useRef(null)
 
@@ -124,11 +120,11 @@ const Layout = ({ children }) => {
 
       <Sidebar navRef={navRef} />
 
-      <Main isAsideOpen={isAsideOpen}>{children}</Main>
+      <Main isSidebarOpen={isSidebarOpen}>{children}</Main>
 
       <nav>
-        <span ref={navRef} onClick={toggleAside}>
-          {isAsideOpen ? "close" : "menu"}
+        <span ref={navRef} onClick={toggleSidebar}>
+          {isSidebarOpen ? "close" : "menu"}
         </span>
       </nav>
     </LayoutContainer>

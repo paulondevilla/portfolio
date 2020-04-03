@@ -84,6 +84,8 @@ const DemoButton = styled.div`
     font-family: inherit;
     font-size: inherit;
     color: hsl(0, 0%, 100%);
+    display: flex;
+    align-items: center;
 
     &:first-child {
       border-right: 2px solid hsl(0, 0%, 100%);

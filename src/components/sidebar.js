@@ -4,14 +4,14 @@ import styled, { css } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes } from "@fortawesome/free-solid-svg-icons"
 
-import { AsideContext } from "./providers"
+import { SidebarContext } from "./providers"
 import { useClickOutsideElement } from "./hooks"
 
-import Footer from "../components/footer"
+import Footer from "./footer"
 import Nav from "./nav"
 
-const AsideContainer = styled.aside`
-  grid-area: aside;
+const SidebarContainer = styled.aside`
+  grid-area: sidebar;
   height: 100vh;
   padding: 2em;
   box-shadow: 10px 0 10px hsla(0, 0%, 0%, 0.03),
@@ -34,19 +34,21 @@ const AsideContainer = styled.aside`
     margin-bottom: 3em;
   }
 
-  @media screen and (max-width: 1150px) {
-    ${({ isOpen }) =>
-      isOpen
-        ? css`
-            grid-column: 1 / aside-end;
+  ${({ isOpen }) =>
+    isOpen
+      ? css`
+          @media screen and (max-width: 1150px) {
+            grid-column: 1 / sidebar-end;
             grid-row: 1/-1;
             background-color: hsl(0, 0%, 100%);
             display: flex;
-          `
-        : css`
+          }
+        `
+      : css`
+          @media screen and (max-width: 1150px) {
             display: none;
-          `}
-  }
+          }
+        `}
 
   @media screen and (max-width: 500px) {
     ${({ isOpen }) =>
@@ -80,33 +82,32 @@ const CloseButton = styled(FontAwesomeIcon).attrs(props => ({
   font-size: 2rem;
   color: hsla(0, 0%, 67%);
   cursor: pointer;
-  display: none;
   position: absolute;
   top: 1em;
   right: 1em;
 
-  @media screen and (max-width: 500px) {
-    display: block;
+  @media screen and (min-width: 500px) {
+    display: none;
   }
 `
 
 const Sidebar = ({ navRef }) => {
-  const { isAsideOpen, toggleAside } = useContext(AsideContext)
+  const { isSidebarOpen, toggleSidebar } = useContext(SidebarContext)
 
-  const asideRef = useRef(null)
+  const SidebarRef = useRef(null)
 
-  useClickOutsideElement([asideRef, navRef], () => {
-    isAsideOpen && toggleAside()
+  useClickOutsideElement([SidebarRef, navRef], () => {
+    isSidebarOpen && toggleSidebar()
   })
 
   return (
-    <AsideContainer ref={asideRef} isOpen={isAsideOpen}>
+    <SidebarContainer ref={SidebarRef} isOpen={isSidebarOpen}>
       <h1>Paul Ondevilla</h1>
       <p>Building well-designed and accessible things for the world wide web</p>
-      <Nav toggleAside={toggleAside} />
+      <Nav isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <Footer />
-      <CloseButton onClick={toggleAside} />
-    </AsideContainer>
+      <CloseButton onClick={toggleSidebar} />
+    </SidebarContainer>
   )
 }
 

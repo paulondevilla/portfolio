@@ -1,22 +1,26 @@
-import React, { createContext, useState } from "react"
+import React, { createContext, useState, useEffect } from "react"
 
 const defaultState = {
-  isAsideOpen: false,
-  toggleAside: () => {},
+  isSidebarOpen: false,
+  toggleSidebar: () => {},
 }
 
-export const AsideContext = createContext(defaultState)
+export const SidebarContext = createContext(defaultState)
 
-const AsideContextProvider = ({ children }) => {
-  const [isAsideOpen, setIsAsideOpen] = useState(false)
+const SidebarContextProvider = ({ children }) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
-  const toggleAside = () => setIsAsideOpen(!isAsideOpen)
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen)
+
+  useEffect(() => {
+    document.body.style.overflow = isSidebarOpen ? "hidden" : "unset"
+  }, [isSidebarOpen])
 
   return (
-    <AsideContext.Provider value={{ isAsideOpen, toggleAside }}>
+    <SidebarContext.Provider value={{ isSidebarOpen, toggleSidebar }}>
       {children}
-    </AsideContext.Provider>
+    </SidebarContext.Provider>
   )
 }
 
-export default AsideContextProvider
+export default SidebarContextProvider

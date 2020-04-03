@@ -31,24 +31,30 @@ const StyledLink = styled(Link)`
   letter-spacing: 0.2rem;
 `
 
-const Nav = ({ toggleAside }) => {
+const Nav = ({ isSidebarOpen, toggleSidebar }) => {
   return (
     <NavContainer>
       <ul>
         <li>
-          <StyledLink to="/" onClick={toggleAside}>
+          <StyledLink to="/" onClick={() => isSidebarOpen && toggleSidebar}>
             Projects
           </StyledLink>
           💻
         </li>
         <li>
-          <StyledLink to="/page-2/" onClick={toggleAside}>
+          <StyledLink
+            to="/page-2/"
+            onClick={() => isSidebarOpen && toggleSidebar}
+          >
             About Me
           </StyledLink>
           👨🏻‍💻
         </li>
         <li>
-          <StyledLink to="/contact-page/" onClick={toggleAside}>
+          <StyledLink
+            to="/contact-page/"
+            onClick={() => isSidebarOpen && toggleSidebar}
+          >
             Contact
           </StyledLink>
           📧
