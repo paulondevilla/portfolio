@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { fluidType } from "./mixins"
 
-const NavContainer = styled.nav`
+const NavWrapper = styled.nav`
   margin-bottom: 2em;
   font-size: 1.8rem;
 
@@ -33,10 +33,10 @@ const StyledLink = styled(Link)`
 
 const Nav = ({ isSidebarOpen, toggleSidebar }) => {
   return (
-    <NavContainer>
+    <NavWrapper>
       <ul>
         <li>
-          <StyledLink to="/" onClick={() => isSidebarOpen && toggleSidebar}>
+          <StyledLink to="/" onClick={() => isSidebarOpen && toggleSidebar()}>
             Projects
           </StyledLink>
           💻
@@ -44,7 +44,7 @@ const Nav = ({ isSidebarOpen, toggleSidebar }) => {
         <li>
           <StyledLink
             to="/about-me-page/"
-            onClick={() => isSidebarOpen && toggleSidebar}
+            onClick={() => isSidebarOpen && toggleSidebar()}
           >
             About Me
           </StyledLink>
@@ -53,14 +53,14 @@ const Nav = ({ isSidebarOpen, toggleSidebar }) => {
         <li>
           <StyledLink
             to="/contact-page/"
-            onClick={() => isSidebarOpen && toggleSidebar}
+            onClick={() => isSidebarOpen && toggleSidebar()}
           >
             Contact
           </StyledLink>
           📧
         </li>
       </ul>
-    </NavContainer>
+    </NavWrapper>
   )
 }
 

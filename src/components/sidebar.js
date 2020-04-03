@@ -63,7 +63,7 @@ const SidebarContainer = styled.aside`
             h1 {
               margin-bottom: 2em;
               text-align: center;
-              font-size: 2.5rem;
+              font-size: 2.8rem;
             }
 
             h1 + p {

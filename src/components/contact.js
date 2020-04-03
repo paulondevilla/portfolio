@@ -6,16 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 
 const ContactForm = styled.form`
+  width: fit-content;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows:
-    minmax(calc(50px + 0.5em), 1fr) minmax(calc(50px + 0.5em), 1fr)
-    minmax(200px, 4fr) minmax(calc(50px + 0.5em), 1fr);
-  grid-template-areas:
-    "email   name"
-    "subject subject"
-    "message message"
-    "....... submit";
+  grid-template-rows: repeat(8, minmax(calc(50px + 0.5em), 1fr));
   gap: 1em;
 
   & > div {
@@ -53,18 +47,34 @@ const ContactForm = styled.form`
 
 const EmailInput = styled.div`
   grid-area: email;
+  grid-row: span 1;
+  grid-column: 1 / -1;
+
+  @media screen and (min-width: 750px) {
+    grid-column: span 1;
+  }
 `
 
 const NameInput = styled.div`
   grid-area: name;
+  grid-row: span 1;
+  grid-column: 1 / -1;
+
+  @media screen and (min-width: 750px) {
+    grid-column: span 1;
+  }
 `
 
 const SubjectInput = styled.div`
   grid-area: subject;
+  grid-row: span 1;
+  grid-column: 1 / -1;
 `
 
 const MessageArea = styled.div`
   grid-area: message;
+  grid-row: span 4;
+  grid-column: 1 / -1;
 
   textarea {
     resize: none;
@@ -73,6 +83,8 @@ const MessageArea = styled.div`
 
 const SendButton = styled.button`
   grid-area: submit;
+  grid-row: span 1;
+  grid-column: 1 / -1;
   justify-self: end;
   width: 10em;
   border-radius: 4px;
