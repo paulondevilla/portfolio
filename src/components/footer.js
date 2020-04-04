@@ -35,7 +35,7 @@ const Footer = () => {
         <a href="mailto:plondevilla@gmail.com">
           <FontAwesomeIcon icon={faEnvelope} />
         </a>
-        <a href="www.linkedin.com/in/paulondevilla">
+        <a href="https://linkedin.com/in/paulondevilla">
           <FontAwesomeIcon icon={faLinkedinIn} />
         </a>
         <a href="https://github.com/paulondevilla">
