@@ -23,7 +23,7 @@ const PersonalLinks = styled.div`
 
   ${fluidType(20, 100, 1.25, 1.675, "rem")}
 
-  & svg:not(:last-of-type) {
+  & > a:not(:last-of-type) {
     margin-right: 1.75em;
   }
 `
@@ -32,10 +32,18 @@ const Footer = () => {
   return (
     <FooterContainer>
       <PersonalLinks>
-        <FontAwesomeIcon icon={faEnvelope} />
-        <FontAwesomeIcon icon={faLinkedinIn} />
-        <FontAwesomeIcon icon={faGithub} />
-        <FontAwesomeIcon icon={faTwitter} />
+        <a href="mailto:plondevilla@gmail.com">
+          <FontAwesomeIcon icon={faEnvelope} />
+        </a>
+        <a href="www.linkedin.com/in/paulondevilla">
+          <FontAwesomeIcon icon={faLinkedinIn} />
+        </a>
+        <a href="https://github.com/paulondevilla">
+          <FontAwesomeIcon icon={faGithub} />
+        </a>
+        <a href="https://twitter.com/paulondevilla">
+          <FontAwesomeIcon icon={faTwitter} />
+        </a>
       </PersonalLinks>
       <p>Copyright &#64; 2020</p>
     </FooterContainer>

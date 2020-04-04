@@ -1,6 +1,6 @@
 import React from "react"
 
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { fluidType } from "./mixins"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons"
