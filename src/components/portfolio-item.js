@@ -35,12 +35,15 @@ const PortfolioItemDescription = styled.div`
   padding: 1.5em;
   display: flex;
   flex-direction: column;
-  gap: 1em;
 
   h1 {
     font-weight: 400;
     letter-spacing: 0.2rem;
     line-height: 1;
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 1em;
   }
 `
 
@@ -48,7 +51,6 @@ const TechStack = styled.ul`
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 0.2em;
   flex-wrap: wrap;
   align-items: center;
 
@@ -56,7 +58,7 @@ const TechStack = styled.ul`
 
   li:not(:last-of-type)::after {
     content: "/";
-    margin-left: 0.2em;
+    margin: 0 0.2em;
   }
 `
 

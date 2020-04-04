@@ -90,7 +90,6 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 
   ${({ isSidebarOpen }) =>
     isSidebarOpen &&
@@ -99,7 +98,13 @@ const Main = styled.main`
     `}
 
   & > h1 {
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  & > h1 + p {
+    max-width: 500px;
+    margin-bottom: 3em;
+    text-align: center;
   }
 `
 

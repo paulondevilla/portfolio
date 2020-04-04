@@ -6,8 +6,9 @@ import Portfolio from "../components/portfolio"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Portfolio Page" />
+    <SEO title="Portfolio" />
     <h1>Portfolio</h1>
+    <p>Please take a minute and browse through some of the projects i built</p>
     <Portfolio />
   </Layout>
 )

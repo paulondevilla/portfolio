@@ -9,11 +9,14 @@ const PortfolioContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2em 0;
 
   & > h1 {
     margin-bottom: 2em;
     letter-spacing: 0.4rem;
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 2em;
   }
 `
 

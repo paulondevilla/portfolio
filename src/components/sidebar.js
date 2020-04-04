@@ -103,7 +103,10 @@ const Sidebar = ({ navRef }) => {
   return (
     <SidebarContainer ref={SidebarRef} isOpen={isSidebarOpen}>
       <h1>Paul Ondevilla</h1>
-      <p>Building well-designed and accessible things for the world wide web</p>
+      <p>
+        A self-taught front-end React developer looking for his first junior
+        role
+      </p>
       <Nav isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <Footer />
       <CloseButton onClick={toggleSidebar} />

@@ -10,7 +10,7 @@ const ContactForm = styled.form`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(8, minmax(calc(50px + 0.5em), 1fr));
-  gap: 1em;
+  grid-gap: 1em;
 
   & > div {
     padding: 0.5em 1em;
