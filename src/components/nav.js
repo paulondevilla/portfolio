@@ -15,7 +15,7 @@ const NavWrapper = styled.nav`
     text-align: center;
 
     li:not(:last-of-type) {
-      margin-bottom: 0.5em;
+      margin-bottom: 1em;
     }
   }
 
@@ -36,28 +36,28 @@ const Nav = ({ isSidebarOpen, toggleSidebar }) => {
     <NavWrapper>
       <ul>
         <li>
+          <span role="img" aria-label="laptop"></span>💻
           <StyledLink to="/" onClick={() => isSidebarOpen && toggleSidebar()}>
             Projects
           </StyledLink>
-          💻
         </li>
         <li>
+          <span role="img" aria-label="coder"></span>👨🏻‍💻
           <StyledLink
             to="/about-me-page/"
             onClick={() => isSidebarOpen && toggleSidebar()}
           >
             About Me
           </StyledLink>
-          👨🏻‍💻
         </li>
         <li>
+          <span role="img" aria-label="envelope"></span>📧
           <StyledLink
             to="/contact-page/"
             onClick={() => isSidebarOpen && toggleSidebar()}
           >
             Contact
           </StyledLink>
-          📧
         </li>
       </ul>
     </NavWrapper>

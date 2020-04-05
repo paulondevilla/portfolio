@@ -23,6 +23,10 @@ const PersonalLinks = styled.div`
 
   ${fluidType(20, 100, 1.25, 1.675, "rem")}
 
+  & > a {
+    color: inherit;
+  }
+
   & > a:not(:last-of-type) {
     margin-right: 1.75em;
   }

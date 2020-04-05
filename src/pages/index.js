@@ -9,15 +9,9 @@ const IndexPage = () => (
     <SEO title="Portfolio" />
     <h1>Portfolio</h1>
     <p>
-      Please take a minute and browse through some of the projects I built.
+      Please take a minute and browse through the projects I built.{" "}
       <span role="img" aria-label="stack of books">
         📚
-      </span>
-      <span role="img" aria-label="magnifier">
-        🔍
-      </span>
-      <span role="img" aria-label="hourglass">
-        ⏳
       </span>
     </p>
     <Portfolio />
