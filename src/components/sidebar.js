@@ -1,8 +1,7 @@
 import React, { useContext, useRef } from "react"
 
 import styled, { css } from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTimes } from "@fortawesome/free-solid-svg-icons"
+import { fluidType } from "./mixins"
 
 import { SidebarContext } from "./providers"
 import { useClickOutsideElement } from "./hooks"
@@ -32,6 +31,26 @@ const SidebarContainer = styled.aside`
 
   h1 + p {
     margin-bottom: 3em;
+  }
+
+  & > button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+
+    ${fluidType(20, 80, 1.25, 1.675, "rem")}
+
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
   }
 
   ${({ isOpen }) =>
@@ -76,22 +95,7 @@ const SidebarContainer = styled.aside`
   }
 `
 
-const CloseButton = styled(FontAwesomeIcon).attrs(props => ({
-  icon: faTimes,
-}))`
-  font-size: 2rem;
-  color: hsla(0, 0%, 67%);
-  cursor: pointer;
-  position: absolute;
-  top: 1em;
-  right: 1em;
-
-  @media screen and (min-width: 500px) {
-    display: none;
-  }
-`
-
-const Sidebar = ({ navRef }) => {
+const Sidebar = ({ navRef, siteTitle }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarContext)
 
   const SidebarRef = useRef(null)
@@ -102,14 +106,16 @@ const Sidebar = ({ navRef }) => {
 
   return (
     <SidebarContainer ref={SidebarRef} isOpen={isSidebarOpen}>
-      <h1>Paul Ondevilla</h1>
+      <h1>{siteTitle}</h1>
       <p>
         A self-taught front-end React developer looking for his first junior
         role
       </p>
       <Nav isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+
       <Footer />
-      <CloseButton onClick={toggleSidebar} />
+
+      <button onClick={toggleSidebar}>close</button>
     </SidebarContainer>
   )
 }

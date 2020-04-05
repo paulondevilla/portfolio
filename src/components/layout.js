@@ -63,23 +63,24 @@ const LayoutContainer = styled.div`
     grid-template-areas: "sidebar main";
   }
 
-  & > nav {
+  & > button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
     z-index: 2;
     position: fixed;
-    top: 2em;
-    right: 2em;
+    top: 2rem;
+    right: 2rem;
     display: flex;
+
+    ${fluidType(20, 80, 1.25, 1.675, "rem")}
 
     @media screen and (min-width: 1150px) {
       display: none;
-    }
-
-    span {
-      text-transform: uppercase;
-      letter-spacing: 0.2rem;
-      cursor: pointer;
-
-      ${fluidType(20, 80, 1.25, 1.675, "rem")}
     }
   }
 `
@@ -127,15 +128,13 @@ const Layout = ({ children }) => {
     <LayoutContainer>
       <GlobalStyle />
 
-      <Sidebar navRef={navRef} />
+      <Sidebar navRef={navRef} siteTitle={data.site.siteMetadata.title} />
 
       <Main isSidebarOpen={isSidebarOpen}>{children}</Main>
 
-      <nav>
-        <span ref={navRef} onClick={toggleSidebar}>
-          {isSidebarOpen ? "close" : "menu"}
-        </span>
-      </nav>
+      <button ref={navRef} onClick={toggleSidebar}>
+        {isSidebarOpen ? "close" : "menu"}
+      </button>
     </LayoutContainer>
   )
 }
