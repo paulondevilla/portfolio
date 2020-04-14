@@ -2,10 +2,14 @@ import React from "react"
 
 import styled from "styled-components"
 import { fluidType } from "./mixins"
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons"
 
 import Image from "./image"
+
+config.autoAddCss = false
 
 const PortfolioItemWrapper = styled.article`
   max-width: 400px;

@@ -2,8 +2,12 @@ import React, { useState } from "react"
 import { navigate } from "gatsby"
 
 import styled from "styled-components"
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+
+config.autoAddCss = false
 
 const ContactForm = styled.form`
   width: fit-content;

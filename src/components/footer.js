@@ -1,12 +1,16 @@
 import React from "react"
 
 import styled from "styled-components"
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { fluidType } from "./mixins"
+
+config.autoAddCss = false
 
 const FooterContainer = styled.footer`
   margin-top: auto;
