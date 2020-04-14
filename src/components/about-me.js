@@ -14,9 +14,6 @@ const AboutMeWrapper = styled.article`
 const AboutMe = () => {
   return (
     <AboutMeWrapper>
-      {/* Who likes building user-friendly and responsive web
-        apps and cms-powered websites using modern web technologies */}
-
       <p>
         Paul, who was born and raised in the Philippines, moved to the United
         States back in 2013. Living in the US made him realize that the modern
@@ -26,16 +23,11 @@ const AboutMe = () => {
         convenient.
       </p>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
-        repudiandae, quae magni, officiis, autem error aspernatur fugiat
-        blanditiis culpa omnis deleniti. Possimus ex nesciunt reiciendis
-        delectus, alias cum est a impedit consectetur fuga magni cumque,
-        deserunt cupiditate minima, rem assumenda?
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero
-        corporis quod possimus officia explicabo maiores fugiat repudiandae
-        iusto, itaque accusamus!
+        He taught himself how to build web apps with HTML, CSS and Javascript.
+        Then, he moved on to building personal projects using modern JS
+        frameworks like ReactJS and GatsbyJS. He also learned how to style these
+        with Sass and Styled-Components. He uses Git for version control and
+        Github for the remote repository. Netlify is his choice for deployment.
       </p>
     </AboutMeWrapper>
   )
